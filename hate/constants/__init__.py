@@ -13,3 +13,7 @@ TWEET = 'tweet'
 DATA_INGESTION_ARTIFACTS_DIR = "DataIngestionArtifacts"
 DATA_INGESTION_IMBALANCE_DATA_DIR = "imbalanced_data.csv"
 DATA_INGESTION_RAW_DATA_DIR = "raw_data.csv"
+
+# Data Validation Constants
+IMBALANCED_DATA_COLUMNS = ['id', 'label', 'tweet']
+RAW_DATA_COLUMNS = ['Unnamed: 0', 'count', 'hate_speech', 'offensive_language', 'neither', 'class', 'tweet']
