@@ -20,3 +20,41 @@ class DataValidationConfig:
         self.IMBALANCED_DATA_PATH = os.path.join(os.getcwd(), ARTIFACTS_DIR, DATA_INGESTION_ARTIFACTS_DIR, DATA_INGESTION_IMBALANCE_DATA_DIR)
         self.RAW_DATA_PATH = os.path.join(os.getcwd(), ARTIFACTS_DIR, DATA_INGESTION_ARTIFACTS_DIR, DATA_INGESTION_RAW_DATA_DIR)
         self.REPORT_FILE_PATH = os.path.join(os.getcwd(), ARTIFACTS_DIR, "data_validation.txt")
+
+
+
+@dataclass 
+class DataTransformationConfig:
+    def __init__(self):
+        self.DATA_TRANSFORMATION_ARTIFACTS_DIR: str = os.path.join(os.getcwd(), ARTIFACTS_DIR, DATA_TRANSFORMATION_ARTIFACTS_DIR)
+        self.TRANSFORMED_FILE_NAME = os.path.join(self.DATA_TRANSFORMATION_ARTIFACTS_DIR, TRANSFORMED_FILE_NAME)
+        self.ID = ID
+        self.AXIS = AXIS
+        self.INPLACE = INPLACE
+        self.DROP_COLUMNS = DROP_COLUMNS
+        self.CLASS = CLASS
+        self.LABEL = LABEL
+        self.TWEET = TWEET
+
+
+
+@dataclass
+class ModelTrainerConfig:
+    def __init__(self):
+        self.MODEL_TRAINER_ARTIFACTS_DIR: str = os.path.join(os.getcwd(), ARTIFACTS_DIR, MODEL_TRAINER_ARTIFACTS_DIR)
+        self.MODEL_FILE_NAME = os.path.join(self.MODEL_TRAINER_ARTIFACTS_DIR, TRAINED_MODEL_NAME)
+        self.X_TEST_DATA_PATH = os.path.join(self.MODEL_TRAINER_ARTIFACTS_DIR, X_TEST_FILE_NAME)
+        self.Y_TEST_DATA_PATH = os.path.join(self.MODEL_TRAINER_ARTIFACTS_DIR, Y_TEST_FILE_NAME)
+        self.X_TRAIN_DATA_PATH = os.path.join(self.MODEL_TRAINER_ARTIFACTS_DIR, X_TRAIN_FILE_NAME)
+        self.MAX_WORDS = MAX_WORDS
+        self.MAX_LEN = MAX_LEN
+        self.LOSS = LOSS
+        self.METRICS = METRICS
+        self.ACTIVATION = ACTIVATION
+        self.LABEL = LABEL
+        self.TWEET = TWEET
+        self.RANDOM_STATE = RANDOM_STATE
+        self.EPOCH = EPOCH
+        self.BATCH_SIZE = BATCH_SIZE
+        self.VALIDATION_SPLIT = VALIDATION_SPLIT
+
