@@ -113,6 +113,8 @@ class TrainPipeline:
         try:
             data_ingestion_artifacts = self.start_data_ingestion()
 
+            start_data_validation = self.start_data_validation()
+
             data_transformation_artifacts = self.start_data_transformation(
                 data_ingestion_artifacts=data_ingestion_artifacts
             )
@@ -139,6 +141,6 @@ class TrainPipeline:
 
 
 
-if __name__ == '__main__':
-    train_pipeline = TrainPipeline()
-    train_pipeline.run_pipeline()
+# if __name__ == '__main__':
+#     train_pipeline = TrainPipeline()
+#     train_pipeline.run_pipeline()
