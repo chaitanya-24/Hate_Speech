@@ -9,6 +9,9 @@ from hate.components.model_evaluation import ModelEvaluation
 from hate.components.model_pusher import ModelPusher
 from hate.entity.config_entity import (DataIngestionConfig, DataValidationConfig, DataTransformationConfig, ModelTrainerConfig, ModelEvaluationConfig, ModelPusherConfig)
 from hate.entity.artifact_entity import (DataIngestionArtifacts, DataValidationArtifacts, DataTransformationArtifacts, ModelTrainerArtifacts, ModelEvaluationArtifacts, ModelPusherArtifacts)
+# import mlflow
+# from mlflow import log_metric, log_param, log_artifact
+# from dagshub import dagshub_logger
 
 class TrainPipeline:
     def __init__(self):
@@ -111,6 +114,7 @@ class TrainPipeline:
     def run_pipeline(self):
         logging.info("Entered the run_pipeline method of TrainPipeline class")
         try:
+
             data_ingestion_artifacts = self.start_data_ingestion()
 
             start_data_validation = self.start_data_validation()
