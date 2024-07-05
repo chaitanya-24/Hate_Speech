@@ -1,6 +1,5 @@
 version: 2.1
 orbs:
-  aws-ecr: circleci/aws-ecr@8.2.1
   aws-cli: circleci/aws-cli@3.1.4
 jobs:
   continuous-integration:
@@ -11,9 +10,17 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
 
+      - checkout
+
+      - run:
+          name: Install Docker
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y docker.io
+
       - aws-ecr/build-and-push-image:
           create-repo: true
-          dockerfile: Dockerfile
+          dockerfile: ./Dockerfile
           path: .
           platform: linux/amd64
           push-image: true
@@ -24,9 +31,21 @@ jobs:
           tag: latest
 
   continuous-delivery:
-    machine: true
-    resource_class: chaitanya-24/hatespeech-runner
+    machine:
+      image: ubuntu-2004:202101-01
     steps:
+      - setup_remote_docker
+
+      - checkout
+
+      - run:
+          name: Install Docker
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y docker.io
+            sudo usermod -aG docker $USER
+            newgrp docker
+
       - aws-cli/setup
 
       - run:
@@ -46,4 +65,4 @@ workflows:
       - continuous-integration
       - continuous-delivery:
           requires:
-          - continuous-integration
+            - continuous-integration
