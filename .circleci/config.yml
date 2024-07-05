@@ -1,5 +1,6 @@
 version: 2.1
 orbs:
+  aws-ecr: circleci/aws-ecr@8.2.1
   aws-cli: circleci/aws-cli@3.1.4
 jobs:
   continuous-integration:
@@ -11,12 +12,6 @@ jobs:
           docker_layer_caching: true
 
       - checkout
-
-      - run:
-          name: Install Docker
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y docker.io
 
       - aws-ecr/build-and-push-image:
           create-repo: true
@@ -31,26 +26,19 @@ jobs:
           tag: latest
 
   continuous-delivery:
-    machine:
-      image: ubuntu-2004:202101-01
+    docker:
+      - image: circleci/python:3.8
     steps:
       - setup_remote_docker
 
       - checkout
 
-      - run:
-          name: Install Docker
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y docker.io
-            sudo usermod -aG docker $USER
-            newgrp docker
-
       - aws-cli/setup
 
       - run:
           name: auth to aws ecr
-          command: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 802898747809.dkr.ecr.us-east-1.amazonaws.com
+          command: |
+            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 802898747809.dkr.ecr.us-east-1.amazonaws.com
           
       - run:
           name: pull image from private repository
