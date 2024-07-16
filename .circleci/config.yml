@@ -33,8 +33,7 @@ jobs:
 
       - run:
           name: auth to aws ecr
-          command: |
-            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 802898747809.dkr.ecr.us-east-1.amazonaws.com
+          command: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 802898747809.dkr.ecr.us-east-1.amazonaws.com
           
       - run:
           name: pull image from private repository
@@ -50,4 +49,5 @@ workflows:
       - continuous-delivery:
           requires:
             - continuous-integration
+
 
