@@ -28,6 +28,9 @@ jobs:
   continuous-delivery:
     docker:
       - image: circleci/python:3.8
+
+    machine: true
+    resource_class: chaitanya-24/hatespeech-runner
     steps:
       - setup_remote_docker
 

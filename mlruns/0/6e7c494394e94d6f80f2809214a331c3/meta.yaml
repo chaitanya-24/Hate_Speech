@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/csawa/Desktop/Hate_Speech/mlruns/0/6e7c494394e94d6f80f2809214a331c3/artifacts
+end_time: 1721143353958
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6e7c494394e94d6f80f2809214a331c3
+run_name: upset-calf-780
+run_uuid: 6e7c494394e94d6f80f2809214a331c3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1721143332016
+status: 3
+tags: []
+user_id: csawa

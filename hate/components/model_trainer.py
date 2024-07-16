@@ -9,8 +9,9 @@ from hate.entity.config_entity import ModelTrainerConfig
 from hate.entity.artifact_entity import ModelTrainerArtifacts, DataTransformationArtifacts
 from sklearn.model_selection import train_test_split
 from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
+# from keras.preprocessing.sequence import pad_sequences
 from hate.ml.model import ModelArchitecture
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 
 class ModelTrainer:

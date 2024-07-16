@@ -12,6 +12,8 @@ from hate.cloud_storage.s3_operation import S3Operation
 from sklearn.metrics import confusion_matrix
 from hate.entity.config_entity import ModelEvaluationConfig
 from hate.entity.artifact_entity import ModelEvaluationArtifacts, ModelTrainerArtifacts, DataTransformationArtifacts
+import mlflow
+from mlflow import log_metric, log_param
 
 class ModelEvaluation:
     def __init__(self, model_evaluation_config: ModelEvaluationConfig, 
@@ -116,36 +118,37 @@ class ModelEvaluation:
 
         try:
             logging.info(f"Entered the initiate_model_evaluation method of ModelEvaluation class")
-            trained_model = keras.models.load_model(self.model_trainer_artifacts.trained_model_path)
-            with open('tokenizer.pickle', 'rb') as handle:
-                load_tokenizer = pickle.load(handle)
+            with mlflow.start_run():
+                trained_model = keras.models.load_model(self.model_trainer_artifacts.trained_model_path)
+                with open('tokenizer.pickle', 'rb') as handle:
+                    load_tokenizer = pickle.load(handle)
 
-            trained_model_accuracy = self.evaluate()
+                trained_model_accuracy = self.evaluate()
 
-            logging.info("Fetch best model from s3 storage")
-            best_model_path = self.get_best_model_from_s3()
+                logging.info("Fetch best model from s3 storage")
+                best_model_path = self.get_best_model_from_s3()
 
-            logging.info("Check if the best model present in the s3 storage or not?")
-            if os.path.isfile(best_model_path) is False:
-                is_model_accepted = True
-                logging.info("The best model is false and  currently trained model accepted is true")
-
-            else:
-                logging.info("The best model fetched from s3 storage")
-                best_model = keras.models.load_model(best_model_path)
-                best_model_accuracy = self.evaluate()
-
-                logging.info("Comparing loss between best_model_loss and trained_model_loss?")
-                if best_model_accuracy > trained_model_accuracy:
+                logging.info("Check if the best model present in the s3 storage or not?")
+                if os.path.isfile(best_model_path) is False:
                     is_model_accepted = True
-                    logging.info("Trained model not accepted")
-                else:
-                    is_model_accepted = False
-                    logging.info("Trained model accepted")  
+                    logging.info("The best model is false and  currently trained model accepted is true")
 
-            model_evaluation_artifacts = ModelEvaluationArtifacts(is_model_accepted=is_model_accepted)
-            logging.info("Returning the ModelEvaluationArtifacts")
-            return model_evaluation_artifacts
+                else:
+                    logging.info("The best model fetched from s3 storage")
+                    best_model = keras.models.load_model(best_model_path)
+                    best_model_accuracy = self.evaluate()
+
+                    logging.info("Comparing loss between best_model_loss and trained_model_loss?")
+                    if best_model_accuracy > trained_model_accuracy:
+                        is_model_accepted = True
+                        logging.info("Trained model not accepted")
+                    else:
+                        is_model_accepted = False
+                        logging.info("Trained model accepted")  
+
+                model_evaluation_artifacts = ModelEvaluationArtifacts(is_model_accepted=is_model_accepted)
+                logging.info("Returning the ModelEvaluationArtifacts")
+                return model_evaluation_artifacts
 
 
         except Exception as e:
