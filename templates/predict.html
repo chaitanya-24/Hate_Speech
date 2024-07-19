@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <h1>Make a Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="text">Enter Text:</label>
+        <input type="text" id="text" name="text">
+        <input type="submit" value="Predict">
+    </form>
+    {% if result %}
+    <h2>Prediction Result:</h2>
+    <p>{{ result }}</p>
+    {% endif %}
+    <a href="/">Go Back to Home</a>
+</body>
+</html>
