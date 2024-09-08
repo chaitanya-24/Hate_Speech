@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/csawa/Desktop/Hate_Speech/mlruns/0/e22a284c6b2e4dcabdc882b0bd63718f/artifacts
+end_time: 1724054603691
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e22a284c6b2e4dcabdc882b0bd63718f
+run_name: redolent-sloth-124
+run_uuid: e22a284c6b2e4dcabdc882b0bd63718f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1724054578423
+status: 3
+tags: []
+user_id: csawa

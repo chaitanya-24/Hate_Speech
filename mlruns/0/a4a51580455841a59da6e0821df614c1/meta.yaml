@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/csawa/Desktop/Hate_Speech/mlruns/0/a4a51580455841a59da6e0821df614c1/artifacts
+end_time: 1724057104975
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a4a51580455841a59da6e0821df614c1
+run_name: wise-hog-482
+run_uuid: a4a51580455841a59da6e0821df614c1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1724057078379
+status: 3
+tags: []
+user_id: csawa

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/csawa/Desktop/Hate_Speech/mlruns/0/96d7dfa75d5c4e94b51a906adb67ba31/artifacts
+end_time: 1724054037522
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 96d7dfa75d5c4e94b51a906adb67ba31
+run_name: valuable-ram-264
+run_uuid: 96d7dfa75d5c4e94b51a906adb67ba31
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1724054014216
+status: 3
+tags: []
+user_id: csawa

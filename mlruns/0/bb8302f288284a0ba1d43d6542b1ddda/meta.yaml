@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/csawa/Desktop/Hate_Speech/mlruns/0/bb8302f288284a0ba1d43d6542b1ddda/artifacts
+end_time: 1724055219736
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: bb8302f288284a0ba1d43d6542b1ddda
+run_name: lyrical-carp-43
+run_uuid: bb8302f288284a0ba1d43d6542b1ddda
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1724055193927
+status: 3
+tags: []
+user_id: csawa
