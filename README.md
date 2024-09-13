@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project aims to build a machine learning model to classify speech as hateful or not hateful using a Long Short-Term Memory (LSTM) network. The model is trained on a dataset specifically curated for hate speech detection. Each time the training pipeline runs, it compares the performance of the newly trained model with the existing deployed model. If the new model outperforms the existing one and meets the performance threshold, the existing model is replaced for real-time predictions.
+This project aims to build a deep learning model to classify speech as hateful or not hateful using a Long Short-Term Memory (LSTM) network. The model is trained on a dataset specifically curated for hate speech detection. Each time the training pipeline runs, it compares the performance of the newly trained model with the existing deployed model. If the new model outperforms the existing one and meets the performance threshold, the existing model is replaced for real-time predictions.
 
 ---
 
