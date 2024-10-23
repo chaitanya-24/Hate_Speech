@@ -1,8 +1,7 @@
 # TextGuard: Hate Speech Classification System
 
 ## Overview
-
-This project aims to build a deep learning model to classify speech as hateful or not hateful using a Long Short-Term Memory (LSTM) network. The model is trained on a dataset specifically curated for hate speech detection. Each time the training pipeline runs, it compares the performance of the newly trained model with the existing deployed model. If the new model outperforms the existing one and meets the performance threshold, the existing model is replaced for real-time predictions.
+The project aims to develop a model for detecting hate speech in tweets. The primary purpose is to create a system that can identify and classify hate speech, crucial for maintaining safer online environments and reducing the spread of harmful content. The model utilizes a deep learning approach, specifically a Long Short-Term Memory (LSTM) architecture. The model is trained on a dataset specifically curated for hate speech classification. Each time the training pipeline runs, it compares the performance of the newly trained model with the existing deployed model. If the new model outperforms the existing one and meets the performance threshold, the existing model is replaced for real-time predictions.
 
 ---
 
