@@ -18,4 +18,12 @@ class ModelArchitecture:
         model.summary()
         model.compile(loss=LOSS, optimizer=RMSprop(), metrics=METRICS)
 
+        # model = Sequential()
+        # model.add(Embedding(MAX_WORDS, 100, input_length=300))
+        # model.add(SpatialDropout1D(0.2))
+        # model.add(LSTM(100, dropout=0.2, recurrent_dropout=0.2, return_sequences=True))
+        # model.add(LSTM(100, dropout=0.2, recurrent_dropout=0.2))
+        # model.add(Dense(1, activation='sigmoid'))
+        # model.summary()
+
         return model
